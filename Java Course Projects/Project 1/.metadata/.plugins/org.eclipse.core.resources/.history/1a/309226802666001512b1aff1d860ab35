@@ -1,0 +1,43 @@
+import javax.swing.JLabel;
+
+
+public class AutoLoanInfo {
+	//
+	//Fields
+	//
+	//Payment Information Fields				//Loan Term Fields
+	private double totalLoanAmount = 0.0;		private double interestRate;
+	private double monthlyPayment  = 0.0;
+	private double totalPayment    = 0.0;
+	//Financing Information						//Price with Options
+	private double basePrice   = 0.0;			private final double autoTranny     = 1800;
+	private double downPayment = 0.0;			private final double antiLockBrakes = 1200;
+	private double salesTax	   = 0.0;			private final double sunRoof 		= 800;
+												private final double naviSystem 	= 1350;
+												private final double audioPack	    = 1550;
+	
+	//Declares and instantiates JLabels that will be used for Payment Information
+	JLabel totalLoan  		= new JLabel("3.0");
+    JLabel monthlyPayAmount = new JLabel("3.0");
+    JLabel totalPayAmount   = new JLabel("3.0");											
+												
+	//Constructor
+	public AutoLoanInfo(){
+		
+	}
+	
+	//Setter for interest rate
+	public void setInterestRate(double rate){
+		interestRate = rate;
+	}
+	public double getInterestRate(){
+		return interestRate;
+	}
+	public void resetPaymentLabel(){
+		totalLoan.setText("0.0");
+		monthlyPayAmount.setText("0.0");
+		totalPayAmount.setText("0.0");
+		
+	}
+}
+

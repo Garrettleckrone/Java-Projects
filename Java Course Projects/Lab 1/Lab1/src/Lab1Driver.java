@@ -1,0 +1,64 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Lab1Driver {
+
+	public static void main(String[] args) throws IOException {
+		
+		//Variables
+		Rectangle[] rectangle; //Holds the array of rectangles
+		int numberOfRectangles;
+		int numRows = 0;
+		int numCols = 0;
+		Boolean isFilled; 
+		String filled = "filled";
+		//Input rectangleData and create new scanner object for file
+		File file = new File("rectangleData.txt");
+		Scanner scan = new Scanner(file);
+		//Scan the number of rectangles
+		numberOfRectangles = scan.nextInt();
+		rectangle = new Rectangle[numberOfRectangles];
+		System.out.println(numberOfRectangles);
+	
+		
+		//Scan each rectangle object
+		while (scan.hasNextLine()){
+			//Counts number of rectangles correctly
+			int counter = 0;
+			numRows = scan.nextInt();	//Rows
+			System.out.print(numRows + " ");
+			numCols = scan.nextInt();	//Columns
+			System.out.print(numCols + " ");
+			//Determines if filled
+			isFilled = (filled.equals(scan.next()) == true) ? (isFilled = true) : (isFilled = false);
+			if (isFilled == true)
+				System.out.println("filled ");
+			if (isFilled == false)
+				System.out.println("unfilled ");
+			
+			//Creates new rectangle
+			rectangle[counter] = new Rectangle(numRows, numCols);
+			rectangle[counter].setFilled(isFilled);
+			
+			
+			//Check if filled
+			if(isFilled==true){
+				rectangle[counter].setFilled(true);
+							
+			}
+			//If unfilled
+			else {isFilled = false;
+			rectangle[counter].setFilled(false);}
+			
+			System.out.println(rectangle[counter].toString());
+			//Increment
+			++counter;
+			
+		}
+		
+		
+		System.exit(0);
+	}
+	
+}

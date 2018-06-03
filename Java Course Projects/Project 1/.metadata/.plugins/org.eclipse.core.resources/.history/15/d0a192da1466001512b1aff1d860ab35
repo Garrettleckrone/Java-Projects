@@ -1,0 +1,26 @@
+
+public class AutoLoanInfo {
+	//
+	//Fields
+	//
+	//Payment Information Fields				//Loan Term Fields
+	private double totalLoanAmount = 0.0;		private double interestRate;
+	private double monthlyPayment  = 0.0;
+	private double totalPayment    = 0.0;
+	//Financing Information						//Price with Options
+	private double basePrice   = 0.0;			private final double autoTranny     = 1800;
+	private double downPayment = 0.0;			private final double antiLockBrakes = 1200;
+	private double salesTax	   = 0.0;			private final double sunRoof 		= 800;
+												private final double naviSystem 	= 1350;
+												private final double audioPack	    = 1550;
+	
+	//Constructor
+	public AutoLoanInfo(){
+		
+	}
+	
+	//Setter for interest rate
+	public void setInterestRate(double rate){
+		interestRate = rate;
+	}
+}

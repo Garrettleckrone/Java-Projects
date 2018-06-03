@@ -1,0 +1,53 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Lab1Driver {
+
+	public static void main(String[] args) throws IOException {
+		
+		//Variables
+		Rectangle[] rectangle; //Holds the array of rectangles
+		int numberOfRectangles;
+		int numRows;
+		int numCols;
+		Boolean isFilled; 
+		String filled = "filled";
+		
+		//Input rectangleData and create new scanner object for file
+		File file = new File("rectangleData.txt");
+		Scanner scan = new Scanner(file);
+		
+		//Scan the number of rectangles
+		numberOfRectangles = scan.nextInt();
+		rectangle = new Rectangle[numberOfRectangles];
+		
+		//Scan each rectangle object
+		while (scan.hasNextLine()){
+			int counter = 0;
+			numRows = scan.nextInt();	//Rows
+			numCols = scan.nextInt();	//Columns
+			//Creates new rectangle
+			rectangle[counter] = new Rectangle(numRows, numCols);
+			
+			//Check if filled
+			if(filled.equals(scan.next())){
+				isFilled = true;
+				rectangle[counter].setFilled(true);
+			}
+			//If unfilled
+			else {isFilled = false;
+			rectangle[counter].setFilled(false);}
+			
+			//Increment
+			++counter;
+		}
+		
+		for (int arrayCounter = 0; arrayCounter < numberOfRectangles; ++arrayCounter){
+			System.out.println(rectangle[arrayCounter]);
+		}
+		
+		System.exit(0);
+	}
+	
+}

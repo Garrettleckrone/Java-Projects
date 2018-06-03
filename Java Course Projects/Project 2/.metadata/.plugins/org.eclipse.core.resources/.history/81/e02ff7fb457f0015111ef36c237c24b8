@@ -1,0 +1,30 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+
+public class Card {
+
+	//Fields 
+	//The face and suit of a card will be represented alphabetically and numerically concatenated into a String. (e.g S4 is the 4 of spades) 
+	//For this project, the suit of a card will be represented as S, H, C, D
+	//Suit (S): Spades
+	//Suit (H): Hearts
+	//Suit (C): Clubs
+	//Suit (D): Diamonds
+	//The number of a card will be represented with integers 1-11
+	//Card Number (1): Ace
+	//Card Number (2-9): The numbers on the card
+	//Card Number (10): All face cards J,Q,K are worth 10
+	//Card Number (11): Ace may also be an 11
+	String card = "00" ; //00 is used by default so indicate an undeclared card. Should look like: S4, 1H, 11H, 3C, 5D
+
+	
+	
+	//Instance data fields
+	public int valueOf(){
+		if (card.equals("00")) return -1; //return -1 if card has no value yet
+		//else if (card.charAt(0) return 1;
+	}
+	
+	
+}

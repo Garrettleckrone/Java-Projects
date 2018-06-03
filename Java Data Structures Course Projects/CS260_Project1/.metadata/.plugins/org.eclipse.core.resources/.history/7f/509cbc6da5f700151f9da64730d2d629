@@ -1,0 +1,87 @@
+import java.lang.*;
+import java.util.Random;
+
+public class LinkedApp {
+	//Fields 
+	long Squares = 0;
+	long Occurences = 0;
+	
+	public static void main(String[] args)
+	{
+		//Fields 
+		LinkedSeq StringSequence;
+		LinkedSeq RectangleSequence;
+		
+		
+		//Introduce the Application 
+		System.out.println("Welcome to the CS260 Project 2\nThis is a program that demonstrates methods used with a linked sequence\n");
+		
+		
+		
+		//Step 1: Create a LinkedSeq of 100, 000 Rectangle objects each having integer
+		//dimensions randomly selected between 1 and 40.
+		
+		//Create the RNG
+		Random rand = new Random();
+		//Create the tail first
+		Node tempNode = new Node(new Rectangle(rand.nextInt(40),rand.nextInt(40)), null);
+		RectangleSequence = new LinkedSeq(tempNode);
+		RectangleSequence.setHead(tempNode);
+		//Populate the list					//Works correctly
+		for (int i = 0; i < 100000; i++){
+			if (i != 99999)
+			{ 
+				tempNode = new Node(new Rectangle(rand.nextInt(40),rand.nextInt(40)), tempNode);
+			}
+			if (i == 99999)
+			{ 
+			//Manually set the tail
+				tempNode = new Node(new Rectangle(rand.nextInt(40),rand.nextInt(40)), tempNode);
+				RectangleSequence.setTail(tempNode);
+				
+			}
+			
+		}
+		
+//		Proof the LinkedSeq was populated
+		System.out.println("Step 1: The sequence is populated with 100,000 nodes");
+		System.out.println("The head node is shown below");
+		System.out.println("The head node is: " + RectangleSequence.getHead() + "\n");
+//		
+		
+		
+		//Step 2: Verify that the listPosition() method returns the tails reference for
+		//position number 100,000
+		System.out.println(RectangleSequence.getTail(RectangleSequence.getHead()));
+		System.out.println(Node.listPosition(RectangleSequence.getHead(), 100000));
+//					Works correctly
+//					Sample output:
+//		Using get tail:							rectangle: width 16, length 28 
+//		Using the listPosition method:			rectangle: width 16, length 28 	
+		
+		
+		//Step 3: Instantiate a Rectangle array to the list length (do not use literals) and
+		//load the Rectangles from the list to the array
+		Rectangle[] RectArray = new Rectangle[Node.listLength(RectangleSequence.getHead())];
+		
+		//
+		
+		
+	}
+	
+	public void Counting(Rectangle[] boxes, Rectangle Target)
+	{
+		//Counts the occurences of a square and matches of the target
+		for (int i = 0; i < boxes.length; i++ ) {
+			if (boxes[i].getLength() == boxes[i].getWidth()){
+				Squares++;
+			}
+			if (boxes[i].equals(Target)){
+				Occurences++;
+			}
+		}
+		
+	}
+	
+	
+}

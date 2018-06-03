@@ -1,0 +1,205 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class CombinedPanels extends JPanel {
+
+	public CombinedPanels() {
+
+		// Set the Frames layout to Border Layout
+		// Add components to the north, center, and south regions
+
+		this.setLayout(new BorderLayout());
+		//Add the title panel
+		this.add(new TitlePanel(), BorderLayout.NORTH);
+		//Add the Action button panel
+		this.add(new ButtonPanel(), BorderLayout.SOUTH);
+		
+		//Create the center panel and configure layout
+		//Then add components from subclasses
+		JPanel centerPanel = new JPanel();
+		//Center panel is 2x2 grid
+		centerPanel.setLayout(new GridLayout(2,2));
+		this.add(centerPanel, BorderLayout.CENTER);
+		
+		//Add subclasses to the center panel
+		centerPanel.add(new PaymentInformation());
+		centerPanel.add(new LoanTerm());
+		centerPanel.add(new FinancingInformation());
+		centerPanel.add(new PriceWithOptions());
+	
+	
+	}
+
+}
+
+// Title panel subclass
+class TitlePanel extends JPanel {
+
+	//Constructor
+	public TitlePanel() {
+		JLabel titleLabel = new JLabel("Auto Loan Calculator");
+		titleLabel.setForeground(Color.BLUE);
+		this.setBackground(Color.ORANGE);
+
+		this.setLayout(new FlowLayout(FlowLayout.CENTER));
+		this.add(titleLabel);
+	}
+}
+
+// Action panel subclass
+class ButtonPanel extends JPanel{
+	
+	//Constructor
+	public ButtonPanel(){
+		
+		this.setName("Action Buttons");
+		this.setLayout(new GridLayout(1,3));
+		this.setBorder(BorderFactory.createTitledBorder("Action Buttons"));
+		
+		JButton calculateButton = new JButton("Calculate");
+		this.add(calculateButton);
+		
+		JButton resetButton = new JButton("Reset");
+		this.add(resetButton);
+		
+		JButton exitButton = new JButton("Exit");
+		this.add(exitButton);
+			
+	}
+}
+
+// Payment Information subclass
+class PaymentInformation extends JPanel{
+	
+	//Fields for Payment Information
+	private double totalLoanAmount = 0;
+	private double monthlyPayment  = 0;
+	private double totalPayment    = 0;
+	
+	//Constructor
+	public PaymentInformation(){
+		//Declares and instantiates JLabels that will be changed to hold values
+		JLabel totalLoan        = new JLabel("0.0");
+		JLabel monthlyPayAmount = new JLabel("0.0");
+		JLabel totalPayAmount   = new JLabel("0.0");
+		
+		//Payment Information border title
+		this.setBorder(BorderFactory.createTitledBorder("Payment Information"));
+		
+		//Adds all the JLabels to a 3x2 grid
+		this.setLayout(new GridLayout(3,2));
+		this.add(new JLabel("Total Loan Amount: $"));
+		this.add(totalLoan, Label.RIGHT);
+		this.add(new JLabel("Montly Payment: $"));
+		this.add(monthlyPayAmount, Label.RIGHT_ALIGNMENT);
+		this.add(new JLabel("Total Payment: $"));
+		this.add(totalPayAmount, Label.RIGHT_ALIGNMENT);
+		
+	}
+}
+
+//Loan Term subclass
+class LoanTerm extends JPanel{
+	
+	//Constructor
+	public LoanTerm(){
+		
+		//Loan Term border title
+		this.setBorder(BorderFactory.createTitledBorder("Loan Term"));
+		
+		//Set Layout
+		this.setLayout(new GridLayout(4,1));
+		
+		//Declare and instantiate radio buttons
+		JRadioButton radio24Month = new JRadioButton("24 Months");
+		JRadioButton radio36Month = new JRadioButton("36 Months");
+		JRadioButton radio48Month = new JRadioButton("48 Months");
+		JRadioButton radio60Month = new JRadioButton("60 Months");
+		
+		
+		//Create a ButtonGroup for the radio buttons
+		ButtonGroup radioGroup = new ButtonGroup();
+		
+		//Add buttons to the group
+		radioGroup.add(radio24Month);	radioGroup.add(radio36Month);
+		radioGroup.add(radio48Month);	radioGroup.add(radio60Month);
+
+		//Add buttons to the panel
+		this.add(radio24Month);	this.add(radio36Month);
+		this.add(radio48Month);	this.add(radio60Month);
+		
+	}
+}
+
+//Financing Information subclass
+class FinancingInformation extends JPanel{
+	
+	//Constructor
+	public FinancingInformation(){
+	
+		//Financing Information border title
+		this.setBorder(BorderFactory.createTitledBorder("Financing Information"));
+		
+		//Create the text fields that will be used
+		JTextField basePriceText = new JTextField("0.0");
+		JTextField downPayText   = new JTextField("0.0");
+		JTextField salesTaxText  = new JTextField("7.0");
+		
+		//Adds the JLabels and text fields to a 3x2 grid
+		this.setLayout(new GridLayout(3,2));
+		this.add(new JLabel("Base Price: $"));
+		this.add(basePriceText);
+		this.add(new JLabel("Down Payment: $"));
+		this.add(downPayText);
+		this.add(new JLabel("Sales Tax: %"));
+		this.add(salesTaxText);
+		
+	}
+	
+}
+
+//Price with Options subclass
+class PriceWithOptions extends JPanel{
+	
+	//Fields required
+	double autoTranny   = 1800;
+	double antiLock     = 1200;
+	double sunRoof      = 800;
+	double naviSystem   = 1350;
+	double audioPackage = 1550;
+	
+	//Constructor
+	public PriceWithOptions(){
+		
+		//Price with Options border title
+		this.setBorder(BorderFactory.createTitledBorder("Price with Options"));
+		
+		//Create checkboxes
+		JCheckBox autoTrannyBox     = new JCheckBox("Auto Transmission: $1,800");
+		JCheckBox antiLockBrakesBox = new JCheckBox("AntiLock Brake: $1,200");
+		JCheckBox sunRoofBox        = new JCheckBox("Sun Roof: $800");
+		JCheckBox naviSystemBox     = new JCheckBox("Navigation System: $1,350");
+		JCheckBox audioPackageBox   = new JCheckBox("Audio Package: $1,550");
+		
+		//Adds the JCheckBoxes to a 5x1 grid
+		this.setLayout(new GridLayout(5,1));	
+		this.add(autoTrannyBox);	this.add(antiLockBrakesBox);	
+		this.add(sunRoofBox);		this.add(naviSystemBox);		
+		this.add(audioPackageBox);
+		
+		
+	}
+}
+

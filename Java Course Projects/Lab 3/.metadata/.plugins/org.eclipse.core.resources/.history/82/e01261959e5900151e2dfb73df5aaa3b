@@ -1,0 +1,26 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class ConversionCalculator extends JFrame{
+	
+	private final int WINDOW_WIDTH = 600;
+	private final int WINDOW_HEIGTH = 200;
+	
+	
+	public ConversionCalculator(){
+		
+		//
+		//Create Frame
+		//
+		JFrame frame = new JFrame("Conversion Calculator");
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setBounds(500, 500, WINDOW_WIDTH, WINDOW_HEIGTH); //Window opens with top left corner at (500,500)
+		frame.setLayout(new GridLayout(1,3));
+		
+		
+		
+	}
+	
+	
+}

@@ -1,0 +1,9 @@
+
+public class Launcher {
+
+	public static void main(String[] args){
+		//First instantiate data by randomly generating a linked list and array
+	    int numberOfElements = 20;
+		randomData(numberOfElements);
+	}
+}

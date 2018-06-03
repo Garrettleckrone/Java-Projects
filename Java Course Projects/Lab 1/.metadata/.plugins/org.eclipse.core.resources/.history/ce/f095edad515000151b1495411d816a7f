@@ -1,0 +1,71 @@
+import java.io.PrintWriter;
+
+
+public class Student {
+	//Variables
+	private String name;
+	private char grade;
+	private double average;
+	private int[] scores;
+	
+	//Constructors
+	public Student(){
+		this.name = "";
+		this.grade = 0;
+		this.average = 0;
+	}
+	public Student(String name, char grade){
+		this.name = name;
+		this.grade = grade;
+	}
+	//Getters
+	public String getName(){return name;}
+	public char getGrade(){return grade;}
+	public double getAverage(){return average;}
+	//Setters
+	public void setName(String name){this.name = name;}
+	public void setGrade(char grade){this.grade = grade;}
+	public void setAverage(double average){this.average = average;}
+	public void setScores(int a, int b, int c, int d, int e){
+		scores[0] = a;
+		scores[1] = b;
+		scores[2] = c;
+		scores[3] = d;
+		scores[4] = e;
+		}
+	
+	
+	public void calculateAverage(){
+		int[] scoresTemp;
+		double average = 0;
+		for (int counter = 0; counter < 5; ++counter){
+			average += scores[counter];
+			average = (average*1.0) / counter;
+			
+		}
+	}
+	public void calculateGrade(){
+		if (average > 89)
+			grade = 'A';
+		else if (average > 79)
+			grade = 'B';
+		else if (average > 69)
+			grade = 'C';
+		else if (average >59)
+			grade = 'D';
+		else 
+			grade = 'F';
+		
+	}
+	
+	public void generateOutput(PrintWriter outFile){
+		outFile.print(name + "\t" 
+					  + scores[0] + "\t"
+					  + scores[1] + "\t"
+					  + scores[2] + "\t"
+					  + scores[3] + "\t"
+					  + scores[4] + "\t"
+					  + average + "\t" 
+					  + grade);
+	}
+}

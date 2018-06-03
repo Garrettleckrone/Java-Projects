@@ -1,0 +1,49 @@
+import java.util.*;
+
+
+public class Menu {
+
+	public static void main(String[] args) {
+		
+		//Arraylist to hold all of the employees
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		
+		//Scanner object used to scan user input through the standard input stream
+		Scanner scan = new Scanner(System.in);
+		
+		//Create a flag variable to exit the while loop
+		int flag = 1;
+		
+		while (flag == 1){
+			int menuSelection = displayMenu();
+			
+			if (menuSelection == 4){
+				System.exit(0);
+			}
+			
+		}
+		
+
+	}
+	
+	public static int displayMenu(){
+		//Create a scanner object to read which menu item the user would like to select
+		Scanner scanMenu = new Scanner(System.in);
+		
+		System.out.println("Please select an option:");
+		System.out.println("1) Add an Employee");
+		System.out.println("2) List Employees");
+		System.out.println("3) List Benefit Status");
+		System.out.println("4) Quit");
+		
+		switch (scanMenu.nextInt()){
+		case 1: return 1;
+		case 2: return 2;
+		case 3: return 3;
+		case 4: return 4;}
+		
+		//Default flag
+		return 0;
+	}
+
+}

@@ -1,0 +1,20 @@
+import java.io.File;
+import java.io.*;
+import java.util.*;
+
+public class lab5B {
+
+	public static void main(String[] PagenSquirtles) 
+			throws IOException {
+		File file = new File("Lab5Text.txt");
+		Scanner scan = new Scanner(file);
+		
+		int counter = 0;
+		while(scan.hasNextLine()){
+			counter++;
+		}
+		System.out.println(counter);
+
+	}
+
+}

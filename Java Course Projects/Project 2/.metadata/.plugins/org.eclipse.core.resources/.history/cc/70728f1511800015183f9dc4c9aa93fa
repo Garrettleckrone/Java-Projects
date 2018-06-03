@@ -1,0 +1,29 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+import java.util.*;
+import java.awt.*;
+import javax.swing.*;
+
+public class PlayerPanel extends JPanel {
+
+	//Fields
+	JLabel playerSum = new JLabel("Sum = 0"); 	//Holds the guest sum total to be displayed
+	String playersHand;
+	Player thePlayer;	//This line has too much swag.
+	
+	
+	//Constructor
+	public PlayerPanel(String whoseHand, Player player){
+		playersHand = whoseHand; //This will be the title of the titled panel. (e.g "Dealer's Hand")
+		thePlayer = player;
+		
+		//Format the JPanel
+		this.setBorder(BorderFactory.createTitledBorder(playersHand));	//Creates the titled border with the title.
+		this.setLayout(new GridLayout(7,1));		 //Formats the layout so that lines stack on top of each other.
+		
+		
+		this.add(playerSum);
+		
+	}
+}

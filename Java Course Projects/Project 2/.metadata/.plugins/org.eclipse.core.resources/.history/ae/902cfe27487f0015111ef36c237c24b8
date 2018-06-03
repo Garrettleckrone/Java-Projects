@@ -1,0 +1,60 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+
+public class Card {
+
+	//Fields 
+	//The face and suit of a card will be represented alphabetically and numerically concatenated into a String. (e.g S4 is the 4 of spades) 
+	//For this project, the suit of a card will be represented as S, H, C, D
+	//Suit (1): Spades
+	//Suit (2): Hearts
+	//Suit (3): Clubs
+	//Suit (4): Diamonds
+	//The number of a card will be represented with integers 1-11
+	//Card Number (1): Ace
+	//Card Number (2-9): The numbers on the card
+	//Card Number (10): All face cards J,Q,K are worth 10
+	//Card Number (11): Ace may also be an 11
+	int cardSuit;
+	int cardNumber;
+
+	//Constructor
+	public Card(){
+		cardSuit = 0;
+		cardNumber = -1;
+	}
+	//Methods
+	
+	//Getter methods
+	public int getCardNumber(){ 
+		return cardNumber;
+		}
+	public int getCardSuit(){ 
+		return cardSuit;
+		}
+	
+	//Setter method
+	public void setCard(int suit, int number){
+		cardSuit = suit;
+		cardNumber = number;
+	}
+	
+	//Value of method
+	public int valueOf(){
+		if (cardNumber == -1) return -1; //return -1 if card has no value yet
+		else if (cardNumber == 1) return 1;
+		else if (cardNumber == 2) return 2;
+		else if (cardNumber == 3) return 3;
+		else if (cardNumber == 4) return 4;
+		else if (cardNumber == 5) return 5;
+		else if (cardNumber == 6) return 6;
+		else if (cardNumber == 7) return 7;
+		else if (cardNumber == 8) return 8;
+		else if (cardNumber == 9) return 9;
+		else if (cardNumber == 0) return 10;
+		else return -1;	//If card does not have an expected value return -1
+	}
+	
+	
+}

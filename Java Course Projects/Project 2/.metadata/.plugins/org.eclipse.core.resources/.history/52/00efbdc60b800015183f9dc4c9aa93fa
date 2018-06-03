@@ -1,0 +1,106 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+
+//Imports
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class TwentyOneGUI extends JFrame {
+	//Fields
+	JPanel declareWinnerPanel = new JPanel();
+	JLabel declareWinner = new JLabel("Empty Table");
+	JFrame scoreBoard = new JFrame();		//Also create a new panel for the score board
+	//Create buttons for the score board
+	JButton startGameButton = new JButton("Start Game");
+	JButton dealGuestCardsButton = new JButton("Deal Guest Cards");
+	JButton leaveTableButton = new JButton("Leave Table");
+	JButton dealDealerCardsButton = new JButton("Deal Dealer Cards");
+	//Create variables for "Guest Wins" and "Dealer Wins" sections on the scoreboard
+	JPanel guestWinsPanel = new JPanel();
+	JLabel guestWinsLabel = new JLabel("Guest Wins");
+	JLabel guestScoreLabel = new JLabel("0");
+	JPanel dealerWinsPanel = new JPanel();
+	JLabel dealerWinsLabel = new JLabel("Dealer Wins");
+	JLabel dealerScoreLabel = new JLabel("0");
+	JPanel leftButtonPanel = new JPanel();
+	JPanel rightButtonPanel = new JPanel();
+	
+	//Constructor
+	public TwentyOneGUI(){
+		//Set Title
+		this.setTitle("TwentyOne Game Table");
+		//Set Sizes and Locations
+		this.setSize(400, 600);
+		this.setLayout(new BorderLayout());
+		this.setLocation(1100, 100);
+		scoreBoard.setSize(500,200);
+		scoreBoard.setLocation(550, 500);
+		//Set default close operation
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		scoreBoard.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		//Format and add the banner to display the winner
+		//Put the banner in a JPanel so that the background color can be set
+		declareWinner.setHorizontalAlignment(JLabel.CENTER);
+		declareWinnerPanel.setBackground(Color.GREEN);
+		declareWinnerPanel.add(declareWinner);
+		this.add(declareWinnerPanel, BorderLayout.NORTH);
+		
+		//Create and format the score board
+		scoreBoard.setTitle("Score Board");
+		scoreBoard.setLayout(new GridLayout(2,2));	//2x2 layout, top quandrants are for the scores, bottom quadrants are for buttons
+		
+		//Format the "Guest Wins" and "Dealer wins" section
+		//Configure Labels
+		guestWinsLabel.setHorizontalAlignment(JLabel.CENTER);
+		dealerWinsLabel.setHorizontalAlignment(JLabel.CENTER);
+		guestScoreLabel.setHorizontalAlignment(JLabel.CENTER);
+		dealerScoreLabel.setHorizontalAlignment(JLabel.CENTER);
+		//Configure Panels
+		guestWinsPanel.setLayout(new GridLayout(2,1));
+		guestWinsPanel.setBackground(Color.MAGENTA);
+		guestWinsPanel.add(guestWinsLabel);
+		guestWinsPanel.add(guestScoreLabel);
+		dealerWinsPanel.setLayout(new GridLayout(2,1));
+		dealerWinsPanel.setBackground(Color.CYAN);
+		dealerWinsPanel.add(dealerWinsLabel);
+		dealerWinsPanel.add(dealerScoreLabel);
+		
+		//Add components to the score board
+		leftButtonPanel.setLayout(new GridLayout(2,1));
+		rightButtonPanel.setLayout(new GridLayout(2,1));
+		scoreBoard.add(guestWinsPanel);
+		scoreBoard.add(dealerWinsPanel);
+		leftButtonPanel.add(startGameButton);
+		leftButtonPanel.add(dealGuestCardsButton);
+		rightButtonPanel.add(leaveTableButton);
+		rightButtonPanel.add(dealDealerCardsButton);
+		scoreBoard.add(leftButtonPanel);
+		scoreBoard.add(rightButtonPanel);
+		
+		//
+		//GUI IS COMPLETED
+		//
+		
+		//Deal card buttons are disabled at the beginning of the program until the game is start
+		dealGuestCardsButton.setEnabled(false);
+		dealDealerCardsButton.setEnabled(false);
+		
+		
+		
+		
+		
+		//Finally, set visible
+		scoreBoard.setVisible(true);
+		this.setVisible(true);
+		
+	}
+//Start Game private inner class button Listener
+	private class StartGameButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			//Instantiate new Deck, Guest, and Dealer objects
+		}
+	}
+}

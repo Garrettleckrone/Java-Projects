@@ -1,0 +1,175 @@
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.text.DecimalFormat;
+
+/* 
+/This is Part B for lab 3 which brings to life the GUI.
+*/
+
+public class ConversionCalculator extends JFrame{
+	
+	private final int WINDOW_WIDTH = 600;
+	private final int WINDOW_HEIGTH = 150;
+	private final String DEFAULT_TEXTFIELD_VALUE = "0.00";
+	DecimalFormat doubleFormat = new DecimalFormat("0.00");
+	
+	public ConversionCalculator(){
+		
+		//
+		//Create Frame
+		//
+		JFrame frame = new JFrame("Conversion Calculator");
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setBounds(500, 500, WINDOW_WIDTH, WINDOW_HEIGTH); //Window opens with top left corner at (500,500)
+		frame.setLayout(new GridLayout(1,3));
+		
+		//
+		//Creates 3 panels, one in each column
+		//
+		JPanel panel1 = new JPanel();	//Panel 1
+		JPanel panel2 = new JPanel();	//Panel 2
+		JPanel panel3 = new JPanel();	//Panel 3
+		
+		frame.add(panel1);				//Adds panels to frame
+		frame.add(panel2);
+		frame.add(panel3);
+		
+		//SetLayouts
+		panel1.setLayout(new GridLayout(2,2));	//2x2 grid for panel 1	
+		panel2.setLayout(new GridLayout(2,2));	//2x2 grid for panel 2
+		panel3.setLayout(new GridLayout(3,1));	//3x1 grid for panel 3 for buttons
+	
+		//
+		//Panel 1 and 2
+		//
+		TextField centimetersTextField = new TextField(DEFAULT_TEXTFIELD_VALUE); //Creates all 4 text Fields
+		TextField metersTextField 	   = new TextField(DEFAULT_TEXTFIELD_VALUE);
+		TextField inchesTextField	   = new TextField(DEFAULT_TEXTFIELD_VALUE);
+		TextField yardsTextField       = new TextField(DEFAULT_TEXTFIELD_VALUE);
+		
+		JLabel centimetersLabel = new JLabel("Centimeters");
+		JLabel metersLabel = new JLabel("Meters");
+		JLabel inchesLabel = new JLabel("Inches");
+		JLabel yardsLabel = new JLabel("Yards");
+		
+		//Add components to panel 1
+		panel1.add(centimetersLabel);		//Centimeters
+		panel1.add(centimetersTextField);
+		panel1.add(metersLabel);			//Meters
+		panel1.add(metersTextField);
+		
+		//Add components to panel 2
+		panel2.add(inchesLabel);			//Inches
+		panel2.add(inchesTextField);
+		panel2.add(yardsLabel);				//Yards
+		panel2.add(yardsTextField);
+		
+		//
+		//Panel 3
+		//
+		JButton clearButton = new JButton("Clear");	//Creates buttons for panel 3
+		JButton calculateButton = new JButton("Calculate");
+		JButton exitButton = new JButton("Exit");
+		
+		//Add buttons to panel 3
+		panel3.add(clearButton);			//Adds buttons to panel 3
+		panel3.add(calculateButton);
+		panel3.add(exitButton);
+		
+		
+		
+		//Action Listener inner class for clearButton
+		class MyButtonListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent clearButton)
+			{
+				centimetersTextField.setText(DEFAULT_TEXTFIELD_VALUE);			//Tested and working clear button
+				metersTextField.setText(DEFAULT_TEXTFIELD_VALUE);
+				inchesTextField.setText(DEFAULT_TEXTFIELD_VALUE);
+				yardsTextField.setText(DEFAULT_TEXTFIELD_VALUE);
+			}
+		}
+		//Add Action Listener to button
+		clearButton.addActionListener(new MyButtonListener());
+		
+		
+		
+		//ActionListener inner class for Exit
+		class ExitButtonListener implements ActionListener
+		{
+			public void actionPerformed(ActionEvent exitButton)
+			{
+				System.exit(0); //Shuts down the program						//Tested and working exit button
+			}
+		}
+		//Add Action Listener to button
+		exitButton.addActionListener(new ExitButtonListener());
+		
+		
+		
+		//ActionListener inner class for Calculate
+		class CalculateButtonListener implements ActionListener
+		{	
+			public void actionPerformed(ActionEvent calculateButton)
+			{
+				double tempValue = 0.00;
+				
+				//Calculate will only work if all other text fields are the default value of 0.00
+				
+				//Calculates from centimeters if only the centimeters field has a value that isn't the default value of 0.00
+				if ((!centimetersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+						&& metersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& inchesTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& yardsTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+				{
+					tempValue = Double.parseDouble(centimetersTextField.getText());
+					metersTextField.setText(doubleFormat.format(tempValue * 0.01) + "");			//Converts cm to m
+					inchesTextField.setText(doubleFormat.format(tempValue * .394) + "");			//Converts cm to inches
+					yardsTextField.setText(doubleFormat.format((tempValue * .394 )* .0278) + "");	//Converts cm to yd
+				}
+				//Calculates from meters if only the meters field has a value that isn't 0.00
+				if ((!metersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+						&& centimetersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& inchesTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& yardsTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+				{
+					tempValue = Double.parseDouble(metersTextField.getText());
+					centimetersTextField.setText(tempValue * 100 + "");			//Converts cm to m
+					inchesTextField.setText(tempValue * 39.37 + "");			//Converts cm to inches
+					yardsTextField.setText(tempValue* 1.094 + "");	//Converts cm to yd
+				}
+				//Calculates from inches if only the inches field has a value that isn't 0.00
+				if ((!inchesTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+						&& centimetersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& metersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& yardsTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+				{
+					tempValue = Double.parseDouble(inchesTextField.getText());
+					centimetersTextField.setText(tempValue * 2.54 + "");			//Converts cm to m
+					metersTextField.setText(tempValue * 0.0254 + "");			//Converts cm to inches
+					yardsTextField.setText( tempValue * 0.0278 + "");	//Converts cm to yd
+				}
+				//Calculates from yards if only the yards field has a value that isn't 0.00
+				if ((!yardsTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+						&& centimetersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& metersTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE)
+						&& inchesTextField.getText().equals(DEFAULT_TEXTFIELD_VALUE))
+				{
+					tempValue = Double.parseDouble(yardsTextField.getText());
+					centimetersTextField.setText(tempValue * 91.44 + "");			//Converts cm to m
+					metersTextField.setText(tempValue * 0.914 + "");			//Converts cm to inches
+					inchesTextField.setText(tempValue * 36.00 + "");	//Converts cm to yd
+				}
+
+
+			}
+		}
+		calculateButton.addActionListener(new CalculateButtonListener());
+		
+	}
+	
+	
+}

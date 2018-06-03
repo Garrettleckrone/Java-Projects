@@ -1,0 +1,7 @@
+
+public class Prj2Driver {
+	
+	public static void main(String[] OstentatiousFruitLoops){
+		new TwentyOneGUI();
+	}
+}

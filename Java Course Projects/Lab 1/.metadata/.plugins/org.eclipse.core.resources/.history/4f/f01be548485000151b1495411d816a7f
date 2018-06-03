@@ -1,0 +1,85 @@
+public class Rectangle {
+
+	private int numRows;
+	private int numCols;
+	private Boolean filled;
+
+	public Rectangle() {
+		this.setRows(1);
+		this.setCols(1);
+		this.setFilled(false);
+	}
+
+	public Rectangle(int row, int col) {
+		numRows = row;
+		numCols = col;
+	}
+
+	public int getRows() {
+		return numRows;
+	}
+
+	public int getCols() {
+		return numCols;
+	}
+
+	public Boolean getFilled() {
+		return filled;
+	}
+
+	public void setRows(int rows) {
+		numRows = rows;
+	}
+
+	public void setCols(int cols) {
+		numCols = cols;
+	}
+
+	public void setFilled(Boolean filled) {
+		this.filled = filled;
+	}
+
+	public String toString() {
+
+		// Local Variables
+		String finalString = "";
+
+		// If filled
+		if (filled == true) {
+			for (int rowCounter = 0; rowCounter < numRows; ++rowCounter) {
+				finalString += "#";
+				for (int j = 0; j < numCols; ++j) {
+					finalString += "#";
+				}
+				finalString += "\n";
+			}
+		}
+		// If unfilled
+		if (filled == false) {
+			for (int rowCounter = 0; rowCounter < numRows; ++rowCounter) {
+				//if first or last row, full #'s
+				if ((rowCounter == 0) || (rowCounter == numRows - 1)) {
+					for (int colCounter = 0; colCounter < numCols; colCounter++) {
+						finalString += "#";
+					}
+				} 
+				//if between first and last row
+				else {
+					//First #
+					finalString += "#";
+					for (int colCounter = 1; colCounter < numCols-1; ++colCounter){
+						finalString += " ";
+					}
+					//Last #
+					finalString += "#";
+					
+					
+					finalString += " ";
+				}
+				finalString += "\n";
+			}
+		}
+
+		return finalString;
+	}
+}

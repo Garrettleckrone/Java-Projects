@@ -1,0 +1,28 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+
+public class Card {
+
+	//Fields 
+	//The face and suit of a card will be represented numerically. 
+	//For this project, the suit of a card will be represented as 1-4
+	//Suit (1): Spades
+	//Suit (2): Hearts
+	//Suit (3): Clubs
+	//Suit (4): Diamonds
+	int suit; //Instantiate
+	
+	//The number of a card will be respresented with integers 1-11
+	//Card Number (1): Ace
+	//Card Number (2-9): The numbers on the card
+	//Card Number (10): All face cards J,Q,K are worth 10
+	//Card Number (11): Ace may also be an 11
+	int cardNumber; //Instantiate
+
+	
+	
+	//Instance data fields
+	
+	
+}

@@ -1,0 +1,35 @@
+import java.util.Random;
+
+
+public class Dealer extends Player {
+	//Fields
+		
+	//Constructor
+	public Dealer(Deck deck) {
+		super(deck); //Takes a deck to use for the player
+			
+	}
+		
+	//Methods
+	public boolean stand(){		//Dealer will stand if his total is over 16.
+			if (valueOf()>16) return true;
+			else if (valueOf() <= 16){ return false;}
+			else return false;
+		}
+		
+		public int valueOf(){	//Dealer will use ace as 11 if he can
+			int handSum = 0;
+			for (int counter = 0; counter < hand.size(); counter++){  
+				if (hand.get(counter).valueOf() != 1){
+					handSum += hand.get(counter).valueOf();}
+				else if (hand.get(counter).valueOf() == 1){
+					if ((handSum + 11)<20){
+						handSum+= 11;			//If the card is an Ace, and adding it to the hand as an 11 would be less than 20, then make the ace 11
+					}
+				}
+			}
+			return handSum;
+		}
+	}
+
+

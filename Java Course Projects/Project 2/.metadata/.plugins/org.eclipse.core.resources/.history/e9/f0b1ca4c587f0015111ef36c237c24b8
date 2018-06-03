@@ -1,0 +1,51 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+
+//Imports
+import java.util.*;
+
+public class Deck {
+	//Fields
+	ArrayList<Card> deck = new ArrayList<Card>(); //Holds a deck of cards
+	
+	//Constructor: The constructor will populate the deck with a card of each suit and number to represent a real deck
+	public Deck(){
+		int cardIndex = 0;
+		for (int suitCounter = 1; suitCounter<=4 ; suitCounter++){
+			//Outter for loop to loop through suits
+			for (int numberCounter = 1; numberCounter<=13; numberCounter++){
+				deck.add(cardIndex, new Card(suitCounter, numberCounter));
+				cardIndex++;
+			}
+		} //End for loops. This populates the deck with all 52 cards.
+	}//End constructor
+	
+	//Shuffle method //Verified working
+	public void shuffle(){
+		//Variables
+		Random randomNumber = new Random();
+		Card temp;
+	
+		for (int shuffleCounter = 0; shuffleCounter<=100; shuffleCounter++){
+			//Each loop
+			//take shuffle counter % 52 and replace that card with shuffle counter % 52 /2
+			int random1 = randomNumber.nextInt(52);
+			int random2 = randomNumber.nextInt(52);
+			temp = deck.get(random1);
+			deck.set(random1, deck.get(random2));
+			deck.set(random2, temp);	
+		}
+	} //End of shuffle method
+	
+	public Card dealCard(){
+		Card nextCard = deck.get(0);
+		System.out.println(nextCard);
+		deck.remove(0);
+		nextCard = deck.get(0);
+		System.out.println(nextCard);
+		return nextCard;
+		
+	
+	}
+}

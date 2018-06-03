@@ -1,0 +1,120 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+import java.util.*;
+import java.awt.*;
+
+public abstract class Player {
+
+	//Fields
+	protected ArrayList<Card> hand = new ArrayList<Card>();	//The players hand
+	protected Deck deck;
+	
+	//Constructor
+	public Player(Deck deck){
+		this.deck = deck;	
+	}
+	
+	//Abstract Methods
+	abstract boolean stand();
+	abstract int valueOf();
+	
+	//Methods
+	public void clearHand(){		//Clears players hand
+		hand.clear();
+	}
+	
+	public boolean bust(){			//Determines if the player busts
+		int handSum = 0;
+		
+		if (hand.isEmpty()){ 		//If hand is empty, the player has not busted	
+			return false;
+		}
+		for (int counter = 0; counter < hand.size(); counter++){  
+			handSum += hand.get(counter).valueOf();	//Add all the values of the faces
+		}
+		if (handSum >= 21) return true;				//If the sum is 21 or over, the player busts
+		else if (handSum <= 20) return false;		//If the sum is less than 21, the player does not bust
+		else return false;							//Default return of False
+	}
+	
+	public void hit(){		
+		hand.add(deck.dealCard());
+	}
+	
+	
+	public void play(){
+		//First, draw two cards. A bust is guarenteed not to occur from two cards.
+		hit();	hit();	//Two hits
+		//Will we stand?
+		while (stand() != true){
+			//If we're not standing, hit the deck
+			hit();
+			//Did we bust from that?
+			if (bust() == true){
+				break; 				//If yes, break 
+									//Player loses
+			}
+		}
+	}
+	public ArrayList<Card> getHand(){
+		return hand;
+	}
+	
+	public String toString(){
+		String outputString = "";
+		
+		for (int counter = 0; counter < hand.size(); counter++){
+			if (hand.get(counter).getCardSuit() == 1){		//If the card is spades
+				if (hand.get(counter).getCardNumber() == 11){
+					outputString += "Jack of Spades";}
+				else if (hand.get(counter).getCardNumber() == 12){
+					outputString += "Queen of Spades";}
+				else if (hand.get(counter).getCardNumber() == 13){
+					outputString += "King of Spades";}	
+				else if (hand.get(counter).getCardNumber() == 1){
+					outputString += "Ace of Spades";}	
+				else
+					outputString += hand.get(counter).getCardNumber() + " of Spades";
+			}
+			if (hand.get(counter).getCardSuit() == 2){		//If the card is hearts
+				if (hand.get(counter).getCardNumber() == 11){
+					outputString += "Jack of Hearts";}
+				else if (hand.get(counter).getCardNumber() == 12){
+					outputString += "Queen of Hearts";}
+				else if (hand.get(counter).getCardNumber() == 13){
+					outputString += "King of Hearts";}	
+				else if (hand.get(counter).getCardNumber() == 1){
+					outputString += "Ace of Hearts";}	
+				else
+					outputString += hand.get(counter).getCardNumber() + " of Hearts";
+			}
+			if (hand.get(counter).getCardSuit() == 3){		//If the card is clubs
+				if (hand.get(counter).getCardNumber() == 11){
+					outputString += "Jack of Clubs";}
+				else if (hand.get(counter).getCardNumber() == 12){
+					outputString += "Queen of Clubs";}
+				else if (hand.get(counter).getCardNumber() == 13){
+					outputString += "King of Clubs";}	
+				else if (hand.get(counter).getCardNumber() == 1){
+					outputString += "Ace of Clubs";}	
+				else
+					outputString += hand.get(counter).getCardNumber() + " of Clubs";
+			}
+			if (hand.get(counter).getCardSuit() == 4){		//If the card is diamonds
+				if (hand.get(counter).getCardNumber() == 11){
+					outputString += "Jack of Diamonds";}
+				else if (hand.get(counter).getCardNumber() == 12){
+					outputString += "Queen of Diamonds";}
+				else if (hand.get(counter).getCardNumber() == 13){
+					outputString += "King of Diamonds";}	
+				else if (hand.get(counter).getCardNumber() == 1){
+					outputString += "Ace of Diamonds";}	
+				else
+					outputString += hand.get(counter).getCardNumber() + " of Diamonds";
+			}
+			
+		}
+		return outputString;
+	}
+}

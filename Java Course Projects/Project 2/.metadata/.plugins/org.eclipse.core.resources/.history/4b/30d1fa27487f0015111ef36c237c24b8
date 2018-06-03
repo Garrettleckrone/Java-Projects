@@ -1,0 +1,14 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+
+public class Deck {
+	//Fields
+	Card[] deck = new Card[52]; //Holds a deck of cards
+	
+	//Constructor: The constructor will populate the deck with a card of each suit and number to represent a real deck
+	public Deck(){
+		
+	}
+	
+}

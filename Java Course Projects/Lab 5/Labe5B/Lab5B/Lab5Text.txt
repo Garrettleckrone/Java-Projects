@@ -1,0 +1,24 @@
+Now that we know a little Something about light in general, we may consider the light source needed to perform holography: the laser, which stands for light amplification by
+stimulated emission of radiation. The understanding of the stimulated emission of light, or how a laser works, will greatly aid in conceptualizing the holographic process. Without the laser, the unique three dimensional imaging characteristics and light phase recreation properties of holography would not exist as we know them today. Two years after
+the advent of the continuous wave laser, c.1959-1960, Leith & Upatnieks (at the University of Michigan) reproduced Gabor's 1947 experiments with the laser, and launched modern holography. 
+A laser is a light amplifier, with very special characteristics. The laser was designed and made to work after two very useful theories had come on the scene. One is Niels Bohr's
+atomic theory and the other is the Quantum Theory. Niels Bohr, a Danish physicist, in the year 1913, proposed a model of the relationship between the electron and nucleus of the
+hydrogen atom. Bohr utilized the newly developed Quantum Theory in proposing that an electron circling the nucleus can assume certain discrete quantized levels of energy. In the
+lowest level, called the ground state, the electron is circling closest to the nucleus. However, if the atom is exposed to an outside source of energy the electron can be raised to a
+higher energy level, or an excited state, which is characterized by the electron carving a circle of greater circumference around the nucleus. It is important to note that the electron
+can't go just anywhere when it is excited but has to assume certain levels. Also, not just any energy would suffice in raising the electron's orbit. The energy must be equal to the
+energy difference between the ground state and the excited state the electron assumes. The frequency is the energy difference divided by "h" or Planck's constant. There are actually
+a number of different energy levels which the electron may assume but that is not essential to this explanation of how a laser works. Energy is radiated in discrete packages, and these packages interact only on a very selective basis. There are two important reasons why lasers work. The laser depends on the very
+special emission characteristics of certain atoms whose electrons have been raised to the excited state. When the electron falls back down to its lower energy level (as all electrons
+eventually do), it in turn emits a package of electromagnetic or radiant energy which precisely equals the energy difference between the two levels, ground state and excited state.
+In a sense, what goes in comes out. This fact alone doesn't suffice in making a substance lase, for if too many electrons are in the ground state, the energy input would merely be
+absorbed by the electrons in the ground state which then might spontaneously emit a quantum of the correct size sometime in the future and that would be the end of that. We don't
+want to have an atom emitting its photon at just any old time, so we stimulate the atom to emit its energy package when we want it to. A package which would not be absorbed by
+another atom in ground state but would stimulate an atom already in an excited state to emit its own photon. In order to maintain the stimulated emission of photons which produce
+laser light, you must initiate and mantain a population inversion. In lasers, electronic principles are applied to the visible portion of the spectrum. In electronics, oscillation is achieved with feedback around an amplifier. The feedback circuit
+determines the frequency of oscillation. In a laser, the tube of excited atoms is the amplifier. The mirror or resonator is the feedback circuit. Oscillation occurs at those wavelengths
+where the product of gain equals the loss, for a round trip, say starting from one mirror and coming back again. The gain of a laser is determined by population inversion, or having
+many more excited electrons, than electrons in the ground state i.e. electrons at their lowest energy level.  The helium-neon laser, which is probably the most common laser in use today (due to its relatively low cost) is the laser you will probably use most. The laser tube itself contains
+approximately 10% helium and 90% neon. Of these two inert gases, neon is the active agent in the lasing process. We could term helium the catalyst insofar as it facilitates the
+energy input to the neon. Before more energy is purposefully forced in the system, there is some action among the atoms and molecules comprising the gases. Some although very,
+very few of the electrons are already in the excited state, or upper energy levels and w

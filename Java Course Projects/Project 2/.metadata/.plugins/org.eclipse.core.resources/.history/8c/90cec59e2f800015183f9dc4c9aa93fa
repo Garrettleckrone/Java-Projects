@@ -1,0 +1,134 @@
+//Garrett Leckrone
+//CS 161
+//Project 2
+
+public class Card {
+
+	// Fields
+	// The face and suit of a card will be represented alphabetically and
+	// numerically concatenated into a String. (e.g S4 is the 4 of spades)
+	// For this project, the suit of a card will be represented as S, H, C, D
+	// Suit (1): Spades
+	// Suit (2): Hearts
+	// Suit (3): Clubs
+	// Suit (4): Diamonds
+	// The number of a card will be represented with integers 1-11
+	// Card Number (1): Ace
+	// Card Number (2-9): The numbers on the card
+	// Card Number (10): All face cards J,Q,K are worth 10
+	// Card Number (11): Ace may also be an 11
+	int cardSuit;
+	int cardNumber;
+
+	// Constructor
+	public Card(int suit, int number) {
+		cardSuit = suit;
+		cardNumber = number;
+	}
+
+	// Methods
+
+	// Getter methods
+	public int getCardNumber() {
+		return cardNumber;
+	}
+
+	public int getCardSuit() {
+		return cardSuit;
+	}
+
+	// Setter method
+	public void setCard(int suit, int number) {
+		cardSuit = suit;
+		cardNumber = number;
+	}
+
+	// Value of method
+	public int valueOf() {
+		if (cardNumber == -1)
+			return -1; // return -1 if card has no value yet
+		else if (cardNumber == 1)
+			return 1;
+		else if (cardNumber == 2)
+			return 2;
+		else if (cardNumber == 3)
+			return 3;
+		else if (cardNumber == 4)
+			return 4;
+		else if (cardNumber == 5)
+			return 5;
+		else if (cardNumber == 6)
+			return 6;
+		else if (cardNumber == 7)
+			return 7;
+		else if (cardNumber == 8)
+			return 8;
+		else if (cardNumber == 9)
+			return 9;
+		else if (cardNumber == 10)
+			return 10;
+		else if (cardNumber == 11)
+			return 10; // Jack returns 10
+		else if (cardNumber == 12)
+			return 10; // Queen return 10
+		else if (cardNumber == 13)
+			return 10; // Kind returns 10
+		else
+			return -1; // If card does not have an expected value return -1
+	}
+
+	// toString method
+	public String toString() {
+		if (getCardSuit() == 1) { // If the card is spades
+			if (getCardNumber() == 11) {
+				return "Jack of Spades";
+			} else if (getCardNumber() == 12) {
+				return "Queen of Spades";
+			} else if (getCardNumber() == 13) {
+				return "King of Spades";
+			} else if (getCardNumber() == 1) {
+				return "Ace of Spades";
+			} else
+				return getCardNumber() + " of Spades";
+		}
+
+		if (getCardSuit() == 2) {		//If the card is hearts
+			if (getCardNumber() == 11) {
+				return "Jack of Hearts";
+			} else if (getCardNumber() == 12) {
+				return "Queen of Hearts";
+			} else if (getCardNumber() == 13) {
+				return "King of Hearts";
+			} else if (getCardNumber() == 1) {
+				return "Ace of Hearts";
+			} else
+				return getCardNumber() + " of Hearts";
+		}
+		if (getCardSuit() == 3) {		//If the card is clubs
+			if (getCardNumber() == 11) {
+				return "Jack of Clubs";
+			} else if (getCardNumber() == 12) {
+				return "Queen of Clubs";
+			} else if (getCardNumber() == 13) {
+				return "King of Clubs";
+			} else if (getCardNumber() == 1) {
+				return "Ace of Clubs";
+			} else
+				return getCardNumber() + " of Clubs";
+		}
+		if (getCardSuit() == 4) {		//If the card is diamonds
+			if (getCardNumber() == 11) {
+				return "Jack of Diamonds";
+			} else if (getCardNumber() == 12) {
+				return "Queen of Diamonds";
+			} else if (getCardNumber() == 13) {
+				return "King of Diamonds";
+			} else if (getCardNumber() == 1) {
+				return "Ace of Diamonds";
+			} else
+				return getCardNumber() + " of Diamonds";
+		}
+		else return "No card";
+	}
+
+}
